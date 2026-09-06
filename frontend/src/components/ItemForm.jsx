@@ -13,7 +13,7 @@ function ItemForm() {
     if (isEdit) {
       const fetchItem = async () => {
         try {
-          const response = await axios.get(`http://localhost:5000/api/items/${id}`);
+          const response = await axios.get(`/api/items/${id}`);
           setName(response.data.name);
           setDescription(response.data.description);
         } catch (error) {
@@ -29,9 +29,9 @@ function ItemForm() {
     try {
       const payload = { name, description };
       if (isEdit) {
-        await axios.put(`http://localhost:5000/api/items/${id}`, payload);
+        await axios.put(`/api/items/${id}`, payload);
       } else {
-        await axios.post('http://localhost:5000/api/items', payload);
+        await axios.post('/api/items', payload);
       }
       navigate('/');
     } catch (error) {

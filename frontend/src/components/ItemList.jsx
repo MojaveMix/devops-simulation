@@ -8,7 +8,7 @@ function ItemList() {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/items');
+      const response = await axios.get('/api/items');
       setItems(response.data);
     } catch (error) {
       console.error('Error fetching items:', error);
@@ -24,7 +24,7 @@ function ItemList() {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this item?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/items/${id}`);
+        await axios.delete(`/api/items/${id}`);
         fetchItems();
       } catch (error) {
         console.error('Error deleting item:', error);
